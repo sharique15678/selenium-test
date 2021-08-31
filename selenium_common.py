@@ -26,7 +26,7 @@ def gecko_setup(headless=False):
     elif sys.platform.startswith('darwin'):  # any macos
         browser = webdriver.Firefox(
             executable_path="./drivers/macos/geckodriver", options=options)
-    elif sys.platform.startswith('cygwin'):  # any windows 64bit
+    elif sys.platform.startswith('win'):  # any windows 64bit
         browser = webdriver.Firefox(
             executable_path="./drivers/windows/geckodriver.exe", options=options)
     return browser
@@ -43,14 +43,14 @@ def chrome_setup(headless=False):
     elif sys.platform.startswith('darwin'):  # any macos
         browser = webdriver.Chrome(
             executable_path="./drivers/macos/chromedriver", options=options)
-    elif sys.platform.startswith('cygwin'):  # any windows 64bit
+    elif sys.platform.startswith('win'):  # any windows 64bit
         browser = webdriver.Chrome(
             executable_path="./drivers/windows/chromedriver.exe", options=options)
     return browser
 
 if __name__ == "__main__":
 	br = init_selenium("firefox")
-	br.get("www.google.com")
+	br.get("https://www.google.com")
 	sleep(60)
 	br.quit()
 	
